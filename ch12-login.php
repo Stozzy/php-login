@@ -4,43 +4,45 @@ session_start();
 ?>
 
 <html>
-    <head>
-        <title>ch12 - Form Processing</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
 
-<body>
-    <nav>
-        <ul>
-            <li><a href="ch12-login.php">Home Page</a></li>
-            <li><a href="ch12-protected-page.php">Protected Page</a></li>
-            <li><a href="#">Contact Page</a></li>
-            <li><a href="ch12-logout.php">Logout Page</a></li>
-        </ul>
-    </nav>
+<head>
+    <title>ch12 - Form Processing</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-    <?php
+<nav>
+    <ul>
+        <li><a href="ch12-login.php">Home Page</a></li>
+        <li><a href="ch12-protected-page.php">Protected Page</a></li>
+        <li><a href="#">Contact Page</a></li>
+        <li><a href="ch12-logout.php">Logout Page</a></li>
+    </ul>
+</nav>
 
-        if(isset($_SESSION['isLoggedIn'])) {
+<?php
 
-            //the user logged in - don't show form and confuse the poor guy!
-            echo "<p>You are already logged in buddy!</p>";
+if(isset($_SESSION['isLoggedIn'])) {
 
-        } else {
+    //the user logged in - don't show form and confuse the poor guy!
+    echo "<p>You are already logged in buddy!</p>";
 
-            //using heredoc, to echo out the form
-            $theForm = <<<FORM
+} else {
 
-                <p>Welcome to WheatBook!</p>
+//using heredoc, to echo out the form
+$theForm = <<<FORM
 
-               <form method="post" action='ch12-login-response.php'>
-                   <input type='text' name='userName' id='username'>
-                   <input type='password' name='password'>
-                   <input type='submit'>
-               </form>
-            FORM;
-        }
-        echo $theForm;
-    ?>
-</body>
+   <p>Welcome to WheatBook!</p>
+   <h2>Please enter your user name and password to log in:</h2>
+   <form method="post" action='ch12-login-response.php'>
+       <input type='text' name='userName' id='username'>
+       <input type='password' name='password'>
+       <input type='submit'>
+   </form>
+
+FORM;
+
+echo $theForm;
+}
+?>
+
 </html>
