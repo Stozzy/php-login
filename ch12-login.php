@@ -18,7 +18,7 @@ session_start();
         <li><a href="ch12-logout.php">Logout Page</a></li>
     </ul>
 </nav>
-
+<main>
 <?php
 
 if(isset($_SESSION['isLoggedIn'])) {
@@ -45,4 +45,22 @@ echo $theForm;
 }
 ?>
 
+<?php
+    //using the querystrong to send messages back to this login page
+
+    $isBlock = $_GET["isBlock"];
+    $badUserCredentials = $_GET["badUserCredentials"];
+
+    if(isset($isBlock)) {
+
+        echo "<h2> Ah, ah, aaaaah .... you need to log in buddy! </h2>";
+        echo "<script>document.getElementById('username').focus();</script>";
+
+    } else if($badUserCredentials) {
+
+        echo "<h2>User name OR password is wrong buddy!</h2>";
+        echo "<script>document.getElementById('username').focus();</script>";
+    }
+?>
+    </main>
 </html>
