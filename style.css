@@ -24,3 +24,26 @@ main {
 	margin:auto;
 	padding: 1rem;
 }
+
+form {
+	display: flex;
+	justify-content: center;
+}
+
+input, p, h2 {
+	margin: 1rem;
+	padding: 0.25rem;
+}
+
+p {
+	text-align: center;
+	font-size: 2rem;
+}
+
+h3 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
